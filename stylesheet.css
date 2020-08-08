@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  font-family: "Josefin Sans";
+}
+
+body,
+html,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url(JosefinSans-VariableFont_wght.ttf);
+}
+
+/* HEADER START */
+
+header {
+  display: flex;
+  height: 60px;
+}
+
+.main-header {
+  flex-grow: 2.5;
+  display: flex;
+}
+
+.cart-header {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid lightgray;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.cart-header h3 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.header-patty {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+.header-text {
+  flex-grow: 9;
+  /* border: 1px solid black; */
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header-text h3 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.header-search {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-ellipse {
+  padding-top: 15px;
+}
+
+.text-ellipse {
+  font-size: 25px;
+  z-index: 1002;
+  position: absolute;
+  padding-left: 5px;
+  color: white;
+
+  /* position: absolute; */
+}
+
+.container-ellipse img {
+  padding-top: 4px;
+}
+
+/* HEADER END */
+
+/* MAIN START */
+main {
+  display: flex;
+}
+
+/* SIDE NAV START */
+nav {
+  flex-grow: 0.27;
+  display: flex;
+  justify-content: center;
+}
+
+nav img {
+  padding: 10px 0;
+}
+
+section {
+  flex-grow: 7;
+}
+
+aside {
+  flex-grow: 1.2;
+}
+/* SIDE NAV END */
+
+/* MAIN MENU START */
+section {
+  width: 100px;
+}
+
+.menu-container {
+  float: left;
+  width: 33.33%;
+  padding-left: 25px;
+  padding-top: 20px;
+}
+
+.menu-container img {
+  width: 80%;
+}
+
+.menu-container h6 {
+  padding-top: 2%;
+}
+
+/* MAIN MENU END  */
+
+/* CART START */
+
+.cart-main img {
+  padding-top: 20%;
+  padding-left: 25%;
+  width: 80%;
+}
+
+.cart-main h5 {
+  text-align: center;
+}
+
+.cart-main h6 {
+  text-align: center;
+}
+
+/* CART END */
+
+/* EDIT  */
+
+.container-grid {
+  padding-top: 20%;
+  padding-left: 20%;
+  display: grid;
+  grid-template-areas:
+    "side-one side-two"
+    "side-three side-four";
+}
+
+.container-grid img {
+  width: 40%;
+}
+
+.sidebar-one {
+  grid-area: side-one;
+}
+
+.sidebar-two {
+  grid-area: side-two;
+}
+
+.sidebar-three {
+  grid-area: side-three;
+}
+
+.sidebar-four {
+  grid-area: side-four;
+}
+
+.bottom-cart {
+  padding-top: 250px;
+}
