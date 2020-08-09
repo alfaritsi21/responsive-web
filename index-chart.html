@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="stylesheet.css" /> -->
+  <!-- <link rel="stylesheet" href="responsive.css" /> -->
+  <link rel="stylesheet" href="JosefinSans-VariableFont_wght.ttf" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <title>Foodies - Your Choosen Food</title>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-1">
+          <div class="header-patty pt-3">
+            <a href="index.html"><img src="images/menu-patty.png" alt="hamburger" /></a>
+          </div>
+        </div>
+        <div class="col-11 d-flex justify-content-center pt-3 shadow-sm p-3 mb-5 bg-white rounded">
+          <h3>History</h3>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <nav class="col-1 shadow-sm p-3 mb-5 bg-white rounded">
+          <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+              <a href="index-select.html">
+                <img src="images/fork.png" alt="fork" />
+              </a>
+            </div>
+            <div class="p-2 bd-highlight">
+              <a href="index-chart.html">
+                <img src="images/clipboard.png" alt="clipboard" />
+              </a>
+            </div>
+            <div class="p-2 bd-highlight">
+              <a href="#exampleModal" data-toggle="modal">
+                <img src="images/add.png" alt="add" /></a>
+            </div>
+          </div>
+        </nav>
+        <section class="col-11">
+          <div class="d-flex flex-column bd-highlight mb-3">
+            <div class="p-2 bd-highlight">
+              <div class="d-flex bd-highlight mb-3 justify-content-around">
+                <div class="p-2 bd-highlight container-income" style="width: 352px;
+                  height: 213px; background: linear-gradient(278.29deg, #FBB2B4 30.05%, rgba(255, 143, 178, 0) 133.19%);
+                  filter: drop-shadow(10px 15px 10px rgba(255, 143, 178, 0.25));
+                  border-radius: 10px;">
+                  <div class="text-income" style="align-items: center; padding: 30px 20px;">
+                    <p>Today's Income</p>
+                    <h4>Rp.1.000.000</h4>
+                    <p>+2% Yesterday</p>
+                  </div>
+                </div>
+                <div class="p-2 bd-highlight container-income" style="width: 352px;
+                  height: 213px; background: linear-gradient(278.29deg, #29DFFF 30.05%, rgba(41, 223, 255, 0) 133.19%);
+                  filter: drop-shadow (10px 15px 10px rgba(41, 223, 255, 0.25));
+                  border-radius: 10px;">
+                  <div class="text-income" style="align-items: center; padding: 30px 20px;">
+                    <p>Orders</p>
+                    <h4>3270</h4>
+                    <p>+5% Last Week</p>
+                  </div>
+                </div>
+                <div class="p-2 bd-highlight container-income" style="width: 352px;
+                  height: 213px; background: linear-gradient(278.29deg, #AB84C8 30.05%, rgba(241, 201, 236, 0) 133.19%);
+                  filter: drop-shadow(10px 15px 10px rgba(241, 201, 236, 0.25));
+                  border-radius: 10px;">
+                  <div class="text-income" style="align-items: center; padding: 30px 20px;">
+                    <p>This Year's Income</p>
+                    <h4>Rp.10.000.000.000</h4>
+                    <p>+10% Last Year</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-2 bd-highlight">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <div class="d-flex bd-highlight mb-3 justify-content-between">
+                      <div class="p-2 bd-highlight">
+                        <h4>Revenue</h4>
+                      </div>
+                      <div class="p-2 bd-highlight">
+                        <div class="dropdown">
+                          <button class="btn btn-secondary bg-primary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Month
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Year</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- CHART -->
+                  <div class="p-2 bd-highlight">
+                    <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                      <canvas id="myChart" style="display: block; width: 1000px; height: 250px;" width="1000"
+                        height="250" class="chartjs-render-monitor">
+                        <script>
+                          let thisMonthData = []
+                          let lastMonthData = []
+                          for (let i = 0; i < 31; i++) {
+                            thisMonthData = [...thisMonthData, (Math.floor(Math.random() * 100) + 1) * 4000];
+                            lastMonthData = [...lastMonthData, (Math.floor(Math.random() * 100) + 1) * 4000];
+
+                          }
+
+                          let ctx = document.getElementById('myChart').getContext('2d');
+                          let chart = new Chart(ctx, {
+                            // The type of chart we want to create
+                            type: 'line',
+
+                            // The data for our dataset
+                            data: {
+                              labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+                              datasets: [{
+                                label: 'This Month',
+                                backgroundColor: '#00000000',
+                                borderColor: 'blue',
+                                data: thisMonthData
+                              },
+                              {
+                                label: 'Last Month',
+                                backgroundColor: '#00000000',
+                                borderColor: 'orange',
+                                data: lastMonthData
+                              },]
+                            },
+
+                            // Configuration options go here
+                            options: {}
+                          });
+                        </script>
+                      </canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- TaABLE -->
+              <div class="p-2 bd-highlight">
+                <div class="d-flex flex-column bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                    <div class="d-flex bd-highlight mb-3 justify-content-between">
+                      <div class="p-2 bd-highlight">
+                        <h4>Recent Order</h4>
+                      </div>
+                      <div class="p-2 bd-highlight">
+                        <div class="dropdown">
+                          <button class="btn btn-secondary bg-primary dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Today
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">This Week</a>
+                            <a class="dropdown-item" href="#">This Month</a>
+                            <a class="dropdown-item" href="#">This Year</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                    <table class="table">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th scope="col">INVOICES</th>
+                          <th scope="col">CASHIER</th>
+                          <th scope="col">DATE</th>
+                          <th scope="col">ORDERS</th>
+                          <th scope="col">AMOUNT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr style="color: #CECECE; text-align: center;">
+                          <td>#10928</td>
+                          <td>Cashier 1</td>
+                          <td>06 October 2019</td>
+                          <td>Black Forest, Red Velvet Latte</td>
+                          <td>Rp. 63.000</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- MODAL 1 -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title align-self-start" id="exampleModalLabel">
+            Add Item
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Image</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">price</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Category</label>
+              <div class="form-group col-md-4">
+                <select id="inputState" class="form-control">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn bg-danger" data-dismiss="modal">
+            <p style="color: white;">Cancel</p>
+          </button>
+          <button type="button" class="btn bg-info">
+            <p style="color: white;">Add</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
